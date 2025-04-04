@@ -10,6 +10,18 @@ class ABB():
         else:
             self.root.add(pet)
 
+    def update(self, pet:Pet, id: int):
+        if self.root == None:
+            raise Exception("No existen mascotas en el listado")
+        else:
+            self.root.update(pet, id)
+
+    def inorder(self):
+        if self.root == None:
+            raise Exception("No existen mascotas en el listado")
+        else:
+            return self.root.inorder()
+
 class NodeABB:
     def __init__(self, pet:Pet):
         self.pet = pet
@@ -18,6 +30,8 @@ class NodeABB:
         self.size = 1
 
     def add(self, pet:Pet):
+        if pet.id == self.pet.id:
+            raise Exception("La mascota ya existe")
         if pet.id < self.pet.id:
             if self.left != None:
                 self.left.add(pet)
@@ -28,6 +42,29 @@ class NodeABB:
         else:
             self.right = NodeABB(pet)
         self.size +=1
+
+    def update(self, pet: Pet, int:id):
+        if self.pet.id == id:
+            self.pet.name = pet.name
+            self.pet.age = pet.age
+        elif pet.id < self.pet.id:
+            if self.left != None:
+                self.left.update(pet,id)
+            else:
+                pass
+        elif self.right != None:
+            self.right.update(pet,id)
+        else:
+            pass
+
+    def inorder(self):
+        listPets = []
+        if self.left != None:
+            listPets.append(self.left.inorder())
+        listPets.append(self.pet)
+        if self.right != None:
+            listPets.append(self.right.inorder())
+        return listPets
 
 
 class NodeAVL(NodeABB):
