@@ -16,6 +16,13 @@ async def get_pets_inorder():
         return abb_service.abb.inorder()
     except Exception as e:
         return {"message":e.args[0]}
+
+@abb_route.get("/postorder")
+async def get_pets_inorder():
+    try:
+        return abb_service.abb.inorder()
+    except Exception as e:
+        return {"message":e.args[0]}
 @abb_route.post("/", status_code=200)
 async def create_pet(pet:Pet, response: Response):
     try:

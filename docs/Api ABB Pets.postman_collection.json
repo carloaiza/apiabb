@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "bdc6a595-522f-42ab-bdcb-f937e5a5652f",
+		"name": "Api ABB Pets",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9406188"
+	},
+	"item": [
+		{
+			"name": "Get pets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/abb",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"abb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create pet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":5,\n    \"name\":\"Lulu\",\n    \"age\":5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/abb",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"abb"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
